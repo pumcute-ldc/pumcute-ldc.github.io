@@ -1,165 +1,166 @@
 <!DOCTYPE html>
 <html lang="vi">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Chú Gấu Cầm Hộp Quà</title>
-        <style>
-            body {
-                font-family: Arial, sans-serif;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                height: 100vh;
-                margin: 0;
-                background-color: #f0f0f0;
-                overflow: hidden;
-            }
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chú Gấu Cầm Hộp Quà</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+            overflow: hidden;
+        }
 
-            .container {
-                text-align: center;
-                position: relative;
-                z-index: 1;
-            }
+        .container {
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
 
-            .bear {
-                cursor: pointer;
-            }
+        .bear {
+            cursor: pointer;
+        }
 
-            .message {
-                display: none;
-                position: absolute;
-                top: 100%;
-                left: 50%;
-                transform: translateX(-50%);
-                background: url("https://i.pinimg.com/736x/cb/64/57/cb6457fc88a414337618e83c91367e2e.jpg") no-repeat center center;
-                background-size: cover;
-                width: 300px;
-                height: 200px;
-                padding: 20px;
-                box-sizing: border-box;
-                border: 2px solid #ddd;
-                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-                color: black; /* Đổi màu chữ thành màu đen */
-                font-size: 1.2em;
-                text-align: center;
-                line-height: 1.4;
-                overflow: hidden; /* Để tránh tràn chữ */
-            }
+        .message {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: url('https://i.pinimg.com/736x/cb/64/57/cb6457fc88a414337618e83c91367e2e.jpg') no-repeat center center;
+            background-size: cover;
+            width: 80vw; /* Đặt chiều rộng theo đơn vị viewport */
+            max-width: 300px; /* Giới hạn chiều rộng tối đa */
+            height: 40vh; /* Đặt chiều cao theo đơn vị viewport */
+            max-height: 200px; /* Giới hạn chiều cao tối đa */
+            padding: 20px;
+            box-sizing: border-box;
+            border: 2px solid #ddd;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            color: black; 
+            font-size: 1.2em; /* Điều chỉnh kích thước chữ */
+            text-align: center;
+            line-height: 1.4;
+            overflow: hidden;
+        }
 
-            .snowflake {
-                position: absolute;
-                top: -10px;
-                color: white;
-                font-size: 1em;
-                user-select: none;
-                pointer-events: none;
-                z-index: 0;
-            }
+        .snowflake {
+            position: absolute;
+            top: -10px;
+            color: white;
+            font-size: 1em;
+            user-select: none;
+            pointer-events: none;
+            z-index: 0;
+        }
 
-            @keyframes fall {
-                to {
-                    transform: translateY(100vh);
-                }
+        @keyframes fall {
+            to {
+                transform: translateY(100vh);
             }
-        </style>
-    </head>
-    <body>
-        <p>BÁM DÔ KON GẤU ĐỂ MỞ HỘP QUÀ CỦA PÉ LUCCC NHOAAA <3</p>
-        <div class="container">
-            <div class="bear" onclick="showMessage()">
-                <img src="https://png.pngtree.com/png-clipart/20230927/original/pngtree-happy-white-bear-hold-a-gift-box-flat-style-cartoon-illustration-png-image_13001777.png" alt="Chú gấu cầm hộp quà" width="200" />
-            </div>
-            <div class="message" id="message"></div>
+        }
+    </style>
+</head>
+<body>
+    <p>BÁM DÔ KON GẤU ĐỂ MỞ HỘP QUÀ CỦA PÉ LUCCC NHOAAA <3</p>
+    <div class="container">
+        <div class="bear" onclick="showMessage()">
+            <img src="https://png.pngtree.com/png-clipart/20230927/original/pngtree-happy-white-bear-hold-a-gift-box-flat-style-cartoon-illustration-png-image_13001777.png" alt="Chú gấu cầm hộp quà" width="200">
         </div>
-        <script>
-            function showMessage() {
-                const messageElement = document.getElementById("message");
-                const messages = [
-                    "Happi 100days nhoaa bbi iu 💖✨ I LOVE U ❤️",
-                    "Chúc mừng 100 ngày yêu thương của chúng ta! ",
-                    "Cảm ơn em đã luôn ở bên cạnh, mang lại niềm vui và hạnh phúc cho cuộc sống của anh.",
-                    "Mong rằng những ngày tới đây, chúng ta sẽ tiếp tục bên nhau ",
-                    "Cùng nhau vượt qua mọi thử thách và xây dựng những kỉ niệm thật đẹp. Yêu em nhiều lắm:3 💖✨",
-                ];
-                let currentIndex = 0;
-                let displayText = ""; // Chuỗi để hiển thị
-                let displayLines = []; // Mảng lưu trữ các dòng ký tự
-
-                if (messageElement.style.display === "none" || messageElement.style.display === "") {
-                    messageElement.style.display = "block";
-                    typeWriter(messageElement, messages, currentIndex, displayText, displayLines);
-                } else {
-                    messageElement.style.display = "none";
-                    messageElement.innerHTML = ""; // Clear the message
-                    currentIndex = 0; // Reset index
-                }
+        <div class="message" id="message"></div>
+    </div>
+    <script>
+        function showMessage() {
+            const messageElement = document.getElementById('message');
+            const messages = [
+                "Happi 100days nhoaa bbi iu 💖✨ I LOVE U ❤️",
+                "Chúc mừng 100 ngày yêu thương của chúng ta!",
+                "Cảm ơn em đã luôn ở bên cạnh, mang lại niềm vui và hạnh phúc cho cuộc sống của anh.",
+                "Mong rằng những ngày tới đây, chúng ta sẽ tiếp tục bên nhau",
+                "Cùng nhau vượt qua mọi thử thách và xây dựng những kỷ niệm thật đẹp. Yêu em nhiều lắm:3 💖✨"
+            ];
+            let currentIndex = 0;
+            let displayText = ''; 
+            let displayLines = []; 
+            
+            if (messageElement.style.display === 'none' || messageElement.style.display === '') {
+                messageElement.style.display = 'block';
+                typeWriter(messageElement, messages, currentIndex, displayText, displayLines);
+            } else {
+                messageElement.style.display = 'none';
+                messageElement.textContent = ''; 
+                currentIndex = 0; 
             }
+        }
 
-            function typeWriter(element, texts, index, displayText, displayLines) {
-                if (index < texts.length) {
-                    const text = texts[index];
-                    let i = 0;
-                    const typingInterval = setInterval(() => {
-                        if (i < text.length) {
-                            displayText += text.charAt(i);
-                            if (i >= 100) {
-                                displayLines.push(displayText.substring(0, 100));
-                                displayText = displayText.substring(1);
-                                element.textContent = displayLines.join("\n");
+        function typeWriter(element, texts, index, displayText, displayLines) {
+            if (index < texts.length) {
+                const text = texts[index];
+                let i = 0;
+                const typingInterval = setInterval(() => {
+                    if (i < text.length) {
+                        displayText += text.charAt(i);
+                        if (i >= 100) {
+                            displayLines.push(displayText.substring(0, 100));
+                            displayText = displayText.substring(1);
+                            element.textContent = displayLines.join('\n');
+                        } else {
+                            element.textContent = displayText;
+                        }
+                        i++;
+                    } else {
+                        clearInterval(typingInterval);
+                        setTimeout(() => {
+                            removeText(element, displayLines);
+                            if (index === texts.length - 1) {
+                                setTimeout(() => {
+                                    window.location.href = 'https://pumcute-ldc.github.io/';
+                                }, 2000); 
                             } else {
-                                element.textContent = displayText;
+                                typeWriter(element, texts, index + 1, '', []); 
                             }
-                            i++;
-                        } else {
-                            clearInterval(typingInterval);
-                            setTimeout(() => {
-                                removeText(element, displayLines);
-                                if (index === texts.length - 1) {
-                                    // Nếu là tin nhắn cuối cùng, thực hiện chuyển hướng trang
-                                    setTimeout(() => {
-                                        window.location.href = "https://pumcute-ldc.github.io/";
-                                    }, 2000); // Chờ 2 giây trước khi chuyển hướng
-                                } else {
-                                    typeWriter(element, texts, index + 1, "", []); // Gọi lại typeWriter để hiển thị lời chúc tiếp theo
-                                }
-                            }, 800);
-                        }
-                    }, 50);
-                }
+                        }, 800);
+                    }
+                }, 50);
             }
+        }
 
-            function removeText(element, displayLines) {
-                if (displayLines.length > 0) {
-                    const removingInterval = setInterval(() => {
-                        if (displayLines.length > 0) {
-                            displayLines.shift();
-                            element.textContent = displayLines.join("\n");
-                        } else {
-                            clearInterval(removingInterval);
-                            element.textContent = "";
-                        }
-                    }, 50);
-                }
+        function removeText(element, displayLines) {
+            if (displayLines.length > 0) {
+                const removingInterval = setInterval(() => {
+                    if (displayLines.length > 0) {
+                        displayLines.shift();
+                        element.textContent = displayLines.join('\n');
+                    } else {
+                        clearInterval(removingInterval);
+                        element.textContent = '';
+                    }
+                }, 50);
             }
+        }
 
-            // Function to create snowflakes
-            function createSnowflake() {
-                const snowflake = document.createElement("div");
-                snowflake.classList.add("snowflake");
-                snowflake.textContent = "❄";
-                snowflake.style.left = Math.random() * window.innerWidth + "px";
-                snowflake.style.animationDuration = Math.random() * 3 + 2 + "s";
-                snowflake.style.fontSize = Math.random() * 10 + 10;
+        function createSnowflake() {
+            const snowflake = document.createElement('div');
+            snowflake.classList.add('snowflake');
+            snowflake.textContent = '❄';
+            snowflake.style.left = Math.random() * window.innerWidth + 'px';
+            snowflake.style.animationDuration = Math.random() * 3 + 2 + 's';
+            snowflake.style.fontSize = Math.random() * 10 + 10 + 'px';
+            snowflake.style.animation = `fall ${Math.random() * 3 + 2}s linear infinite`;
 
-                setTimeout(() => {
-                    snowflake.remove();
-                }, 5000);
-            }
+            document.body.appendChild(snowflake);
 
-            // Create snowflakes at
-            // Create snowflakes at an interval
-            setInterval(createSnowflake, 100);
-        </script>
-    </body>
+            setTimeout(() => {
+                snowflake.remove();
+            }, 5000);
+        }
+
+        setInterval(createSnowflake, 100);
+    </script>
+</body>
 </html>
